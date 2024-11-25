@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import netflixlogo from '../../assets/netflix-logo.png';
 import tvimage from '../../assets/tv.png';
 import herovideo from '../../assets/hero-vid.m4v';
@@ -13,7 +13,15 @@ import { ChevronRight } from "lucide-react";
 
 const AuthScreen = () => {
 
-    const [email, setEmail] = useState("")
+    const [email, setEmail] = useState("");
+    const navigate = useNavigate();
+
+    const handleFormSubmit = (e) =>{
+        e.preventDefault();
+        navigate("/signup?email="+email);
+
+
+    }
 
 
 
@@ -37,7 +45,7 @@ const AuthScreen = () => {
         <p className='mb-4'>Ready to watch? Enter your email to create or restart your membership.</p>
 
 
-        <form className='flex flex-col md:flex-row gap-4 w-1/2'>
+        <form onSubmit={handleFormSubmit} className='flex flex-col md:flex-row gap-4 w-1/2'>
             <input type="email" className='p-2 rounded flex-1 bg-black/80 border border-gray-700'
                 placeholder='Email address'
                 id='email'
@@ -45,7 +53,7 @@ const AuthScreen = () => {
                 onChange={(e)=>setEmail(e.target.value)}
             />
 
-            <button className='bg-red-600 text-xl lg:text-2xl px-2 lg:px-6 py-1 md:py-2 rounded flex justify-center items-center'>
+            <button type='submit' className='bg-red-600 text-xl lg:text-2xl px-2 lg:px-6 py-1 md:py-2 rounded flex justify-center items-center'>
 				Get Started
 				<ChevronRight className='size-8 md:size-10' />
 			</button>

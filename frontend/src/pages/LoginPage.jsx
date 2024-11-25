@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import netflixlogo from '../assets/netflix-logo.png'
+import { useAuthStore } from '../store/authUser';
 
 const LoginPage = () => {
 
   const [email, setEmail] = useState("");  
   const [password, setPassword] = useState("");
 
+  const {login} = useAuthStore();
+
 
 
   const handlelogin = (e) =>{
     e.preventDefault();
-    console.log(email,password);
+    login({email,password});
   }
 
 
