@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
-import netflixlogo from '../assets/netflix-logo.png'
+import netflixlogo from '../assets/netflix-logo.png';
 import { useAuthStore } from '../store/authUser';
 
 const SignUpPage = () => {
