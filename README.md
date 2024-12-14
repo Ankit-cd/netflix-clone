@@ -5,3 +5,5 @@
 # <i> This netflix clone is built on using the TMDB.</i>
 
 ## <p>MERN Stack Netflix Clone</p>
+
+### *Check it Out : https://netflix-clone-eby2.onrender.com*
